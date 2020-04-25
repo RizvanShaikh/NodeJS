@@ -1,0 +1,30 @@
+{
+  "name": "schoolmngwt_pluto_structor",
+  "version": "1.0.0",
+  "description": "School Management With Using Pluto App Structure",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rizwan Shaikh",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.2",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.4",
+    "path": "^0.12.7",
+    "randomstring": "^1.1.5",
+    "read-excel-file": "^4.0.5",
+    "sha256": "^0.2.0",
+    "xls-to-json-lc": "^0.3.4",
+    "xlsx-to-json-lc": "^0.5.0"
+  }
+}

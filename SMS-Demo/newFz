@@ -1,0 +1,49 @@
+edite faizan
+
+courseDeleted
+
+
+
+
+
+Write a JavaScript program to check whether a given integer has an increasing digits sequence.
+
+const number = 56329;
+const arr = Array.from(String(number));
+var result;
+for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < arr[i + 1])
+        result = true;
+    else
+        result = false;
+}
+console.log(result);
+======withou function======
+const num = 56329;
+  var myArray = ('' + num).split('');
+var result;
+  for (var i = 0; i < myArray.length - 1; i++) {
+    if (parseInt(myArray[i]) > parseInt(myArray[i + 1])) {
+    	   result = true;
+    	} else {
+    	   result = false;
+    	}
+     
+    }
+ console.log(result)
+
+
+
+throught function ====
+function myFunction(num) {
+
+  var myArray = ('' + num).split('');
+
+  for (var i = 0; i < myArray.length - 1; i++) {
+    if (parseInt(myArray[i]) >= parseInt(myArray[i + 1]))
+      return false;
+    }
+  return true;
+}
+
+console.log(myFunction(123));

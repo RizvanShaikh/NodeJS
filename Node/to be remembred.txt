@@ -1,0 +1,14 @@
+
+mkdir demo //demo is the project name
+cd demo 
+npm init 
+npm install --save express body-parser mongoose
+
+const express = require('express');
+const app = express();
+app.set('port',process.env.PORT || 8090);
+app.listen(app.get('port'),()=>{
+console.log(`Server listening on ${app.get('port')}`);
+})
+
+node index.js 
