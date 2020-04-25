@@ -1,0 +1,155 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "SMS-AngularNodeJS": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/SMS-AngularNodeJS",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "src/assets/css/vendor/bootstrap.css",
+              "src/assets/vendor/metismenu/dist/metisMenu.css",
+              "src/assets/vendor/switchery-npm/index.css",
+              "src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
+              "src/assets/css/icons/line-awesome.min.css",
+              "src/assets/css/icons/dripicons.min.css",
+              "src/assets/css/icons/material-design-iconic-font.min.css",
+              "src/assets/css/common/main.bundle.css",
+              "src/assets/css/common/custom.css",
+              "src/assets/css/layouts/vertical/core/main.css",
+              "src/assets/css/layouts/vertical/menu-type/default.css",
+              "src/assets/css/layouts/vertical/themes/theme-a.css",
+              "src/assets/vendor/bootstrap-datepicker/bootstrap-datepicker.min.css",
+              "src/assets/vendor/bootstrap-daterangepicker/daterangepicker.css"
+            ],
+            "scripts": [
+              "src/assets/vendor/modernizr/modernizr.custom.js",
+              "src/assets/vendor/jquery/dist/jquery.min.js",
+              "src/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js",
+              "src/assets/vendor/bootstrap-daterangepicker/daterangepicker.js",
+              "src/assets/js/components/bootstrap-datepicker-init.js",
+              "src/assets/js/components/bootstrap-date-range-picker-init.js",
+              "src/assets/vendor/js-storage/js.storage.js",
+              "src/assets/vendor/js-cookie/src/js.cookie.js",
+              "src/assets/vendor/pace/pace.js",
+              "src/assets/vendor/metismenu/dist/metisMenu.js",
+              "src/assets/vendor/switchery-npm/index.js",
+              "src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
+              "src/assets/js/global/app.js",
+              "src/assets/js/global/custome.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "SMS-AngularNodeJS:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "SMS-AngularNodeJS:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "SMS-AngularNodeJS:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "SMS-AngularNodeJS:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "SMS-AngularNodeJS:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "SMS-AngularNodeJS"
+}

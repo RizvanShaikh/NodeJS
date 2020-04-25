@@ -1,0 +1,87 @@
+<div class="content">
+    <header class="page-header">
+        <div class="d-sm-flex align-items-center">
+
+            <div class="mr-auto mb-md-0 mb-2">
+                <h1 class="">Courses List</h1>
+            </div>
+
+            <!-- <app-search-form [searchText]="search" (searchEvent)="getSearch($event)"></app-search-form> -->
+
+            <div class="ml-0 ml-sm-3 mt-3 mt-sm-0 d-sm-inline-block">
+                <a [routerLink]="['add']" class="btn btn-primary ">
+                    Add Courses
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <section class="page-content container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="table-responsive-md">
+                            <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th class="text-center" style="width: 10%">Status</th>
+                                        <th class="text-center" style="width: 10%">Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let obj of objectList">
+                                        <td> {{obj.name}}</td>
+                                        <td> {{obj.price}}</td>
+                                        <td> {{obj.isActive}}</td>
+                                        <td>
+                                            <ul class="actions">
+                                                <li class="dropdown">
+                                                    <a href="javascript:void(0)" class="btn btn-fab"
+                                                        data-toggle="dropdown" aria-expanded="false">
+                                                        <i class="la la-ellipsis-h"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-icon-menu dropdown-menu-right">
+
+                                                        <a  [routerLink]="['view']" class="dropdown-item">
+                                                                <i class="zmdi zmdi-eye zmdi-hc-fw"></i> view
+                                                        </a>
+
+                                                        <a  [routerLink]="['edit']" class="dropdown-item">
+                                                            <i class="zmdi zmdi-edit zmdi-hc-fw"></i> Edit
+                                                        </a>
+
+                                                        <!-- <app-delete-action  *ngIf="canDelete" [obj]="obj" [deleteUrl]="deleteUrl"
+                                                            (onDelete)="getObjectList()">
+                                                        </app-delete-action> -->
+
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr *ngIf="objectList.length == 0">
+                                        <td colspan="6">no records found</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <!-- <app-pagination [pagination]="pagination" (changePage)="getPage($event)"></app-pagination> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

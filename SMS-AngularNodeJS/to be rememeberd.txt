@@ -1,0 +1,14 @@
+ng generate module customers --route customers --module app.module   it will generate module file
+ng g c to generate component
+
+
+ng generate service hero
+ng g class models/customer
+
+https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial
+
+ng generate module <name>
+ng generate service <name>
+
+starting from the auth guards didn't used AuthGuards
+app-token.service.ts getToken(), saveToken()

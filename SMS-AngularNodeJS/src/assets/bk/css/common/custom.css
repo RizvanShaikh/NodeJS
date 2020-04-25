@@ -1,0 +1,40 @@
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff ; 
+ }
+ .table td, .table th, .table thead th {
+border-bottom: 1px solid rgba(234,243,253,.9);
+}
+.card-footer {
+    background-color: #fff;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+   display: none;   
+}
+.card {
+    margin-bottom: 0px;
+}
+.page-header h1.separator {
+    border-right: none;
+}
+.card-footer button a.submit-blue {
+    color: #fff;
+}
+.sidebar.sidebar-left .sidebar-content .main-menu {
+    width: inherit;
+    overflow-y: auto;
+    padding-bottom: 65px;
+    min-height: 100vh;
+}
+/* .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+} */
+
+a{
+ cursor:pointer;
+}
+
+.has-error{
+    color: red;
+   }
+

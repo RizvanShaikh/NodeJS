@@ -1,0 +1,148 @@
+<div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" class="sign-in-form">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="sign-in-heading text-center m-b-20">{{title}}</h3>
+                <div class="form-group">
+                    <label for="inputName" class="sr-only">Your Name</label>
+                    <input type="text"  placeholder="Your First Name" formControlName="firstName" class="form-control" required="">
+                    <div *ngIf="registrationForm.get('firstName').errors  && isSubmitted">  
+                        <div *ngIf="registrationForm.get('firstName').hasError('required')">  
+                          <span style="color: red;">Please Enter Your first Name.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('firstName').hasError('minlength')">  
+                          <span style="color: red;">firstName requied atleast 3 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('firstName').hasError('maxlength')">  
+                          <span style="color: red;">firstName requied only 10 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('firstName').hasError('pattern')">  
+                          <span style="color: red;">Only characters are allowed.</span>  
+                        </div>  
+                      </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputLast" class="sr-only">Your Last</label>
+                    <input type="text" placeholder="Your Last Name" formControlName="lastName" class="form-control" required="">
+                    <div *ngIf="registrationForm.get('lastName').errors  && isSubmitted">  
+                        <div *ngIf="registrationForm.get('lastName').hasError('required')">  
+                          <span style="color: red;">Please Enter Last Name.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('lastName').hasError('minlength')">  
+                          <span style="color: red;">Last Name requied atleast 3 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('lastName').hasError('maxlength')">  
+                          <span style="color: red;">Last Name requied only 10 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('lastName').hasError('pattern')">  
+                          <span style="color: red;">Only characters are allowed.</span>  
+                        </div>  
+                      </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" placeholder="Email Address" formControlName="email" class="form-control"  required="">
+                    <div *ngIf="registrationForm.get('email').errors && isSubmitted">  
+                        <div *ngIf="registrationForm.get('email').hasError('required')">  
+                          <span style="color: red;">Please Enter Email.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('email').hasError('minlength')">  
+                          <span style="color: red;">The email requied atleast 5 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('email').hasError('maxlength')">  
+                          <span style="color: red;">The email requied only 30 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('email').hasError('pattern')">  
+                          <span style="color: red;">The Email is not valid.</span>  
+                        </div>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" placeholder="Password" formControlName="password" class="form-control" required="">
+                    <div *ngIf="registrationForm.get('password').errors && isSubmitted">  
+                        <div *ngIf="registrationForm.get('password').hasError('required')">  
+                          <span style="color: red;">Please Enter Password.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('password').hasError('minlength')">  
+                          <span style="color: red;">The password requied atleast 5 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('password').hasError('maxlength')">  
+                          <span style="color: red;">The password requied only 12 characters.</span>  
+                        </div>  
+                        <div *ngIf="registrationForm.get('password').hasError('pattern')">  
+                            <span style="color: red;">The password must be contain 1 small letter, 1 upper case letter & number.</span>  
+                          </div> 
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" class="sr-only">Example select</label>
+                  <select class="form-control"  formControlName="userType">
+                    <option>teacher</option>
+                    <option>student</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                        <div class="form-check-inline custom-control custom-radio">
+                            <input type="radio" id="genderMale" name="customRadio" class="custom-control-input" formControlName="gender" value="male">
+                            <label class="custom-control-label" for="genderMale">Male</label>
+                        </div>
+                        <div class="form-check-inline custom-control custom-radio">
+                            <input type="radio" id="genderFemale" name="customRadio" class="custom-control-input" formControlName="gender" value="female">
+                            <label class="custom-control-label" for="genderFemale">Female</label>
+                        </div>
+                </div>
+                <!-- <div class="form-group">
+                    <div class="custom-file">
+                        <input #Image type="file" formControlName="userImage" class="p-bottom custom-file-input"  (change)="handleFileInput($event.target.files)" required="">
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <img width="25%" *ngIf="imageUrl" [src]="imageUrl" class="image">
+                        <div *ngIf="registrationForm.get('userImage').errors && isSubmitted">  
+                        <div *ngIf="registrationForm.get('userImage').hasError('required')">  
+                            <span style="color: red;"> file is required. </span>  
+                        </div> 
+                          </div>
+                    </div>
+                </div> -->
+              
+                <div class="formGroup">
+                  <input #Image type="file" class="p-bottom" formControlName="userImage" (change)="handleFileInput($event.target.files)"/>
+                  <!-- <input type="file" name="images" class="p-bottom" multiple formControlName="userImage" (change)="selectMultipleImage($event)" /> -->
+                  <img width="25%" *ngIf="imageUrl" [src]="imageUrl" class="image">
+                  <div *ngIf="registrationForm.get('userImage').errors && isSubmitted">  
+                  <div *ngIf="registrationForm.get('userImage').hasError('required')">  
+                      <span style="color: red;"> file is required. </span>  
+                    </div> 
+                    </div>
+              </div>
+                <div class="form-group">
+                  <div class="col-lg-8 col-md-9 col-sm-12">
+                    <div class="input-group date dp-years">
+                      <input type="text" class="form-control" placeholder="mm/dd/yyyy" formControlName="dateOfBirth">
+                      <span class="input-group-addon action">
+                        <i class="icon dripicons-calendar"></i>
+                      </span>
+                    </div>
+                    <div *ngIf="registrationForm.get('dateOfBirth').errors && isSubmitted">  
+                      <div *ngIf="registrationForm.get('dateOfBirth').hasError('required')">  
+                        <span style="color: red;">Please Enter Date of Birth.</span>  
+                      </div>  
+                  </div>
+                  </div>
+                </div>
+                <div class="checkbox m-b-10 m-t-15">
+                    <div class="custom-control custom-checkbox checkbox-primary form-check">
+                        <input type="checkbox" class="custom-control-input" id="stateCheck1" checked="">
+                        <label class="custom-control-label" for="stateCheck1">	I accept the <a href="javascript:void(0)">terms and conditions</a></label>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-rounded btn-floating btn-lg btn-block" type="submit">Create My Account</button>
+                 <p class="text-muted m-t-25 m-b-0 p-0">
+                    Already have an account?<a [routerLink]="['/auth/login']"> Sign In</a>
+                 </p>
+            </div>
+
+        </div>
+    </form>
+</div>

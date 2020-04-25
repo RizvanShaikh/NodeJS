@@ -1,0 +1,63 @@
+<div class="container">
+    <form [formGroup]="LoginForm" (ngSubmit)="onLoginFormSubmit()" class="sign-in-form">
+        <div class="card">
+            <div class="card-body">
+                <a href="#" class="brand text-center d-block m-b-20">
+                    <img src="../../../assets/img/qt-logo-white_2x.png" alt="QuantumPro Logo" />
+                </a>
+                <h3 class="sign-in-heading text-center m-b-20">{{title}}</h3>
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" placeholder="Email Address" formControlName="email" class="form-control"  required="">
+                    <div *ngIf="LoginForm.get('email').errors && isSubmitted">  
+                        <div *ngIf="LoginForm.get('email').hasError('required')">  
+                          <span style="color: red;">Please Enter Email.</span>  
+                        </div>  
+                        <div *ngIf="LoginForm.get('email').hasError('minlength')">  
+                          <span style="color: rgb(78, 78, 78);">The email requied atleast 5 characters.</span>  
+                        </div>  
+                        <div *ngIf="LoginForm.get('email').hasError('maxlength')">  
+                          <span style="color: red;">The email requied only 30 characters.</span>  
+                        </div>  
+                        <div *ngIf="LoginForm.get('email').hasError('pattern')">  
+                          <span style="color: red;">The Email is not valid.</span>  
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" placeholder="Password" formControlName="password" class="form-control" required="">
+                    <div *ngIf="LoginForm.get('password').errors && isSubmitted">  
+                        <div *ngIf="LoginForm.get('password').hasError('required')">  
+                          <span style="color: red;">Please Enter Password.</span>  
+                        </div>  
+                        <div *ngIf="LoginForm.get('password').hasError('minlength')">  
+                          <span style="color: red;">The password requied atleast 5 characters.</span>  
+                        </div>  
+                        <div *ngIf="LoginForm.get('password').hasError('maxlength')">  
+                          <span style="color: red;">The password requied only 12 characters.</span>  
+                        </div>  
+                        <!-- <div *ngIf="LoginForm.get('password').hasError('pattern')">  
+                            <span style="color: red;">The password must be contain 1 small letter, 1 upper case letter & number.</span>  
+                          </div>  -->
+                    </div>
+                </div>
+                <div class="checkbox m-b-10 m-t-20">
+                    <div class="custom-control custom-checkbox checkbox-primary form-check">
+                        <input type="checkbox" class="custom-control-input" id="stateCheck1" checked="">
+                        <label class="custom-control-label" for="stateCheck1">	Remember me</label>
+                    </div>
+                    <a [routerLink]="['/auth/forgot-password']"  class="float-right">Forgot Password?</a>
+                   
+                </div>
+                <button class="btn btn-primary btn-rounded btn-floating btn-lg btn-block" type="submit"><a class="sign-in">Sign In</a></button>
+                <p class="text-muted m-t-25 m-b-0 p-0">
+                        Don't have Account  <a [routerLink]="['/auth/register']" style="text-align: center;"> Create an Account</a>
+                   </p>
+    
+            </div>
+
+        </div>
+    </form>
+</div>
