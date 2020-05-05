@@ -11,4 +11,25 @@ app.listen(app.get('port'),()=>{
 console.log(`Server listening on ${app.get('port')}`);
 })
 
-node index.js 
+node index.js
+
+------------------
+
+https://mongoosejs.com/docs/
+
+npm init 
+
+npm install --save express body-parser mongoose 
+npm install dotenv --save
+npm i --save bcryptjs
+npm install jsonwebtoken --save
+npm install --save multer
+npm install --save path
+npm i read-excel-file --save
+npm i xls-to-json-lc --save
+npm i xlsx-to-json-lc --save
+npm i lodash --save
+npm i bluebird --save  // for returning promise
+npm i randomstring --save
+npm i sha256 --save //  randome number genrator
+npm i nodemailer --save 
