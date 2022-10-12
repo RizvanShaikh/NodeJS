@@ -26,7 +26,7 @@
     "nodemailer": "^6.4.4",
     "path": "^0.12.7",
     "randomstring": "^1.1.5",
-    "read-excel-file": "^4.0.5",
+    "read-excel-file": "^5.5.1",
     "sha256": "^0.2.0",
     "supertest": "^4.0.2",
     "xls-to-json-lc": "^0.3.4",
